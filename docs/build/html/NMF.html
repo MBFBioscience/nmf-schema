@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuromorphological File Specification &#8212; Neuromophological File Specification 4.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release Notes" href="Release.html" />
+    <link rel="prev" title="Welcome to the Neuromorphological File Specification" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="neuromorphological-file-specification">
+<h1>Neuromorphological File Specification<a class="headerlink" href="#neuromorphological-file-specification" title="Permalink to this headline">¶</a></h1>
+<p>Version 1.0.0 <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
+<div class="section" id="definitions">
+<h2>1. Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Research Resource Identifier (RRID): a persistent and unique identifier for referencing a research resource.</p></li>
+</ol>
+</div>
+<div class="section" id="introduction-to-the-neuromorphological-file-format">
+<h2>2. Introduction to the Neuromorphological File Format<a class="headerlink" href="#introduction-to-the-neuromorphological-file-format" title="Permalink to this headline">¶</a></h2>
+<p>This specification describes the elements of the neuromorphological data file. The structures represented have been continually developed for over 30 years, balancing accurate 3D representation of microscopic structures with the efficiency for reading, writing, storing, and rendering the reconstruction data. The neuromorphological file format balances structure with flexibility by storing each modeled object as a unique data element, and providing mechanisms for grouping any number and type of data elements. File-level metadata is stored that provides detail on the sample origin to ensure no important source information is separated from the corresponding data. Each structure implemented has had a strong influence from top neuroscientists to maintain a meaningful model and provide the necessary analysis options for that entity. The file specification will continue to be updated as needed to define added or modified data elements.</p>
+</div>
+<div class="section" id="neuromorphological-file-contents">
+<h2>3. Neuromorphological File Contents<a class="headerlink" href="#neuromorphological-file-contents" title="Permalink to this headline">¶</a></h2>
+<p>The neuromorphological file format is an Extensible Markup Language (XML) 1.0 (Fifth Edition) format and includes two organizational aspects, elements, and attributes [1]. These aspects are detailed in the neuromorphological file specification provided by The World Wide Web Consortium (WC3). All neuromorphological data files have a header section that includes the file’s introductory content followed by any traced data elements. Traced data elements are representations of a diverse range of neuromorphological structures found in microscopy image data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;mbf version= 4.0 appname=&quot;ApplicationName&quot; appversion=&quot;YYYY.V.M&quot; apprrid=&quot;SCR_xxxxx&quot; insrrid=&quot;SCR_xxxxx&quot;&gt;
+  &lt;description&gt;&lt;/description&gt;
+  &lt;filefacts&gt;&lt;/filefacts&gt;
+  &lt;sparcdata&gt;&lt;/sparcdata&gt;
+  &lt;property name=&quot;TimePointManager&quot;&gt;&lt;/property&gt;
+  &lt;images&gt;&lt;/images&gt;
+  &lt;thumbnail cols=&quot;64&quot; rows=&quot;64&quot;&gt;&lt;/thumbnail&gt;
+
+  TRACING DATA
+
+&lt;/mbf&gt;
+</pre></div>
+</div>
+<p><em>Figure 1 A Neuromorphological data file.  The header elements are displayed in blue. All MBF tracing data is a nested element of the &lt;mbf&gt; element and is represented above with the comment, TRACING DATA.</em></p>
+<div class="section" id="coordinate-space">
+<h3>3.1 Coordinate Space<a class="headerlink" href="#coordinate-space" title="Permalink to this headline">¶</a></h3>
+<p>The coordinate space for all neuromorphological data files is a three-dimensional space and all coordinates and measurements are in micrometer units (µm). The origin point of the coordinate system is (0, 0, and 0).</p>
+<a class="reference internal image-reference" href="_images/1.png"><img alt="alternate text" class="align-center" src="_images/1.png" style="width: 900px; height: 400px;" /></a>
+<p><em>Figure 2 demonstrates the 3D coordinate space with an origin point of (0, 0, and 0). The gray planes represent a 3D image volume with an image location coordinate, coord: (x, y, and z). Note the direction of the Z-axis. The most positive image plane of the 3D volume is image plane 1. The following image planes are in the same X and Y location, but their z location changes incrementally based on the z scaling. The units of this coordinate space are in micrometers (µm).</em></p>
+</div>
+</div>
+<div class="section" id="header-elements">
+<h2>4. Header Elements<a class="headerlink" href="#header-elements" title="Permalink to this headline">¶</a></h2>
+<p>The first line of all neuromorphological data files is always the XML declaration element. It contains two attributes, version and encoding, that define the structure and storage units of the neuromorphological file format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+</pre></div>
+</div>
+<p><em>Figure 3 The XML document declaration element, attributes, and values as they apear in the segmentation data file.</em></p>
+<p><em>Table 1 The XML declaration element, attributes, and descriptions for all fields.</em></p>
+<p>The remainder of the data file is embedded within the &lt;mbf&gt; element, including file header information and the elements that comprise the tracing data used to model neuronal morphology and surrounding anatomies. The closing &lt;/mbf&gt; is the last line of all neuromorphological data files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;mbf version= 4.0 appname=&quot;ApplicationName&quot; appversion=&quot;YYYY.V.M&quot; apprrid=&quot;SCR_xxxxx&quot; insrrid=&quot;SCR_xxxxx&quot;&gt;
+     ⋮
+    &lt;/mbf&gt;
+</pre></div>
+</div>
+<p><em>Figure 4 The &lt;mbf&gt; element, attributes, and values as they apear in the segmentation data file. The appversion for all MBF Bioscience software is reported with the year, version, and minor version (YYYY.V.M). The virtical elipses between the attributes of the &lt;mbf&gt; elements  and the &lt;/mbf&gt; end tag is used as shorthand to indicate there are additional child elements of the &lt;mbf&gt; element that are not detailed in this figure.</em></p>
+<p>The following attributes reside directly within the &lt;mbf&gt; element:</p>
+<p><em>Table 2 The &lt;mbf&gt; element, attributes, and descriptions for all fields.</em></p>
+<p>The remaining portion of the header information is described in detail below. File header information includes necessary metadata that helps to describe the data included in the neuromorphological file.</p>
+<div class="section" id="description">
+<h3>4.1 &lt;description&gt;<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>The &lt;description&gt; element is a string of user optional text describing the contents of the data file. The format of the text is character data indicated by the CDATA section, used to differentiate the text block from markup.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;description&gt;&lt;![CDATA[Example description of image segmentation file]]&gt;&lt;/description&gt;
+</pre></div>
+</div>
+<p><em>Figure 5 The &lt;description&gt; element contains the CDATA start section &lt;![CDATA[ and CDATA end section ]] to indicate a large string of text that is not a data element.</em></p>
+</div>
+<div class="section" id="filefacts">
+<h3>4.2 &lt;filefacts&gt;<a class="headerlink" href="#filefacts" title="Permalink to this headline">¶</a></h3>
+<p>The &lt;filefacts&gt; element stores sequentially ordered serial Z sections for the data file that correspond to physically or virtually sectioned histologic tissue. If no sections have been created for a data file, the only child element of the &lt;filefacts&gt; is the &lt;sectionmanager&gt;. In this case, the values of the &lt;sectionmanager&gt; attributes indicate there have been no sections created and the child element should be disregarded.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filefacts</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">sectionmanager</span> <span class="n">currentsection</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="n">sectioninterval</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">startingsection</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">filefacts</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 6 displays the &lt;filefacts&gt; of a data file with no sections. Note the current section has no value, the sectioninterval value is “0”, and the startingsection value is “0”.</em></p>
+<p>If serial Z sections have been created for the data file, this child element contains meaningful parameters about the sections. Child &lt;section&gt; elements for each Z section are stored in the &lt;filefacts&gt; element.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filefacts</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">section</span> <span class="n">sid</span><span class="o">=</span><span class="s2">&quot;S1&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Section N0&quot;</span> <span class="n">top</span><span class="o">=</span><span class="s2">&quot;z.zz&quot;</span> <span class="n">cutthickness</span><span class="o">=</span><span class="s2">&quot;n.nn&quot;</span> <span class="n">mountedthickness</span><span class="o">=</span><span class="s2">&quot;n.nn&quot;</span><span class="o">/&gt;</span>
+       <span class="o">&lt;</span><span class="n">section</span> <span class="n">sid</span><span class="o">=</span><span class="s2">&quot;S2&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Section N1&quot;</span> <span class="n">top</span><span class="o">=</span><span class="s2">&quot;z.zz&quot;</span> <span class="n">cutthickness</span><span class="o">=</span><span class="s2">&quot;n.nn&quot;</span> <span class="n">mountedthickness</span><span class="o">=</span><span class="s2">&quot;n.nn&quot;</span><span class="o">/&gt;</span>
+       <span class="o">&lt;</span><span class="n">section</span> <span class="n">sid</span><span class="o">=</span><span class="s2">&quot;S3&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Section N2&quot;</span> <span class="n">top</span><span class="o">=</span><span class="s2">&quot;z.zz&quot;</span> <span class="n">cutthickness</span><span class="o">=</span><span class="s2">&quot;n.nn&quot;</span> <span class="n">mountedthickness</span><span class="o">=</span><span class="s2">&quot;n.nn&quot;</span><span class="o">/&gt;</span>
+       <span class="o">&lt;</span><span class="n">sectionmanager</span> <span class="n">currentsection</span><span class="o">=</span><span class="s2">&quot;Section Nx&quot;</span> <span class="n">sectioninterval</span><span class="o">=</span><span class="s2">&quot;i&quot;</span> <span class="n">startingsection</span><span class="o">=</span><span class="s2">&quot;N0&quot;</span><span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">filefacts</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 7 The &lt;filefacts&gt; of a data file with serial sections. Each section in the data file has a corresponding &lt;section&gt; element. The attributes of the &lt;sectionmanager&gt; element are now significant values.</em></p>
+<p>All child elements and attributes of the &lt;filefacts&gt; are defined in Table 3.</p>
+<p><em>Table 3 The &lt;filefacts&gt; element, its child elements, attributes, and descriptions for all fields.</em></p>
+</div>
+<div class="section" id="sparcdata">
+<h3>4.3 &lt;sparcdata&gt;<a class="headerlink" href="#sparcdata" title="Permalink to this headline">¶</a></h3>
+<p>The &lt;sparcdata&gt; element stores additional subject and annotation metadata. This information allows neuromorphological data files to be queried by species, subject ID, sex, age, and organ of the image sample origin.</p>
+<p>MBF products interface with an external database, Scicrunch that maintains lists of anatomical terms separated by organ, species, and atlas/parcellation scheme. Each anatomy term is associated with a unique identifier and is approved by a team of anatomical experts. The &lt;sparcdata&gt; element informs the species, subject, sex, and age of the image sample segmented along with the exact anatomical list used to segment the image.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">sparcdata</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">subject</span> <span class="n">species</span><span class="o">=</span><span class="s2">&quot;http://purl.obolibrary.org/obo/NCBITaxon_XXXXXX&quot;</span> <span class="n">subjectid</span><span class="o">=</span><span class="s2">&quot;SUBJECT_001&quot;</span> <span class="n">sex</span><span class="o">=</span><span class="s2">&quot;Male&quot;</span> <span class="n">age</span><span class="o">=</span><span class="s2">&quot;14 Weeks&quot;</span><span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="n">atlas</span> <span class="n">organ</span><span class="o">=</span><span class="s2">&quot;Brain&quot;</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Allen Mouse Brain Atlas Terminology&quot;</span> <span class="n">rootid</span><span class="o">=</span><span class="s2">&quot;http://purl.org/sig/ont/fma/fmaXXXX&quot;</span><span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">sparcdata</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 8 A neuromorphological data file related to a microscopy image sample from a 14-week old male mouse brain delineated using anatomical terminology from the Allen Mouse Brain Atlas [3]. The species and atlas rootid provide URL links to the term lists origin.</em></p>
+<p>The &lt;sparcdata&gt; child elements and their attributes are detailed in Table 4.</p>
+<p><em>Table 4 The &lt;sparcdata&gt; element, its child elements, attributes, and descriptions for all fields.</em></p>
+</div>
+<div class="section" id="property-name-timepointmanager">
+<h3>4.4 &lt;property name=”TimePointManager”&gt;<a class="headerlink" href="#property-name-timepointmanager" title="Permalink to this headline">¶</a></h3>
+<p>The &lt;property&gt; element named “TimePointManager” will always be present in the neuromorphological data files, however, it is not used at this time. The element can be disregarded.</p>
+</div>
+<div class="section" id="images">
+<h3>4.5 &lt;images&gt;<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<p>Raw image data is not saved within neuromorphological data files, rather they are linked with a file location and name and other information about the image.</p>
+<p>The &lt;images&gt; element in the header can contain one or many &lt;image&gt; elements enabling the neuromorphological data file to be associated with any number of source images. The images can be either 2D (a single image plane) or 3D (multiple image planes from a single file or multiple files). Image data can be combined in several ways inside the neuromorphological data file. The simplest is the single 3D or 2D image file. See an example in Figure 9.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">images</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>\\<span class="n">FilePath</span>\<span class="n">ImageName</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;&lt;</span><span class="n">channels</span> <span class="n">merge</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">channel</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;red&quot;</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="o">/&gt;</span>
+              <span class="o">&lt;</span><span class="n">channel</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;green&quot;</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="o">/&gt;</span>
+              <span class="o">&lt;</span><span class="n">channel</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="o">/&gt;</span>
+            <span class="o">&lt;/</span><span class="n">channels</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">scale</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x.xxx&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y.yyy&quot;</span><span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="n">coord</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x.xxx&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y.yyy&quot;</span> <span class="n">z</span><span class="o">=</span><span class="s2">&quot;z.zzz&quot;</span><span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="n">zspacing</span> <span class="n">z</span><span class="o">=</span><span class="s2">&quot;z.zzz&quot;</span> <span class="n">slices</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">image</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">images</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 9 An &lt;images&gt; element with only one image associated with the data file.</em></p>
+<p>Within each &lt;image&gt; element, five nested elements provide details pertaining to that image(s).</p>
+<p><em>Table 5 The &lt;image&gt; element, its child elements, attributes, and descriptions for all fields.</em></p>
+<p>A neuromorphological data file with multiple, distinct images associated to the same file may include many &lt;image&gt; child elements in the &lt;images&gt; element. Each image will have its own set of child elements and attributes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">images</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>\\<span class="n">FilePath</span>\<span class="n">Image</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">channels</span> <span class="n">merge</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="o">&gt;&lt;/</span><span class="n">channels</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">scale</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">coord</span><span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="n">zspacing</span><span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">image</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>\\<span class="n">FilePath</span>\<span class="n">Image</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">channels</span> <span class="n">merge</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="o">&gt;&lt;/</span><span class="n">channels</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">scale</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">coord</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">zspacing</span><span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">image</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">images</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 10 An &lt;images&gt; element with multiple distinct images associated with the same data file. Note there are two separate &lt;image&gt; child elements within the &lt;images&gt; element. For concicity, the attributes of each child elements of each &lt;image&gt; have been excluded from the figure, but follow the same structure as see in Figure 9.</em></p>
+<p>A 3D volume can be made up of many 2D image planes. These volumes are recorded within the neuromorphological data file with one &lt;image&gt; child element and an ordered list of &lt;filename&gt; children elements pointing to the location and file name for each image plane. Each 2D image plane is sequentially loaded from the list into a 3D image volume. The scale is consistent for every image plane. The &lt;coord&gt; reports the X, Y, and Z coordinates of the upper, left-hand corner of the first image plane. The distance between image planes and the number of slices is kept constant for the entire image volume.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;images&gt;
+      &lt;image&gt;
+        &lt;filename&gt;FilePath\Image[1]&lt;/filename&gt;
+            &lt;filename&gt;FilePath\Image[2]&lt;/filename&gt;
+            &lt;filename&gt;FilePath\Image[3]&lt;/filename&gt;
+            &lt;filename&gt;FilePath\Image[4]&lt;/filename&gt;
+            ⋮
+            &lt;filename&gt;FilePath\Image[N]&lt;/filename&gt;
+            &lt;channels merge=&quot;no&quot;&gt;&lt;/channels&gt;
+            &lt;scale/&gt;
+            &lt;coord/&gt;
+            &lt;zspacing z=&quot;z.zzz&quot; slices=&quot;N&quot;/&gt;
+      &lt;/image&gt;
+    &lt;/images&gt;
+</pre></div>
+</div>
+<p><em>Figure 11 A data file with many 2D image planes that make up a 3D image volume. The file path and image name for each 2D image are reported sequentially in the same &lt;image&gt; child element. In the &lt;zspacing&gt; element, the distance between each 2D image is reported, z=“z.zz”. The number of 2D image planes that construct the 3D volume will equal the total number of slices=”N”. Other image elements have been shortened to emphasize the important differences in this image organization. The &lt;channels&gt;, &lt;scale&gt;, and &lt;coord&gt; attributes are still included in these data files.</em></p>
+<p>A multi-channel microscopy image can be generated by merging 2 or 3 source images that make up the image color channels. If the images are merged to create a multi-channel image, the &lt;channels&gt; merge attribute will have a value of “yes”. There will always be three &lt;filename&gt; elements that sequentially correspond to the &lt;channel&gt; elements (i.e. &lt;filename&gt;1 will always correspond to the red &lt;channel&gt; element). The &lt;channel&gt; id attribute reports the pseudocolor of the color channel (red, green, or blue). The source attribute defines the image channel number from the source image starting at 0. If no image is selected for a &lt;channel&gt; element, the &lt;filename&gt; will remain but no image path or name is reported and the &lt;channel&gt; source value will equal “none”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">images</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="n">FilePath</span>\<span class="n">Image</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="n">FilePath</span>\<span class="n">Image</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="n">FilePath</span>\<span class="n">Image</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">filename</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">channels</span> <span class="n">merge</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">channel</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;red&quot;</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">/&gt;</span>
+          <span class="o">&lt;</span><span class="n">channel</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;green&quot;</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="o">/&gt;</span>
+          <span class="o">&lt;</span><span class="n">channel</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="o">/&gt;</span>
+        <span class="o">&lt;/</span><span class="n">channels</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">scale</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">coord</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">zspacing</span><span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">image</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">images</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 12 A data file with multiple images merged into one multi-channel image. The first channel of Image[1], source=”0”, is displayed in MBF Bioscience software as red. The third channel of Image[2], source=”2”, is displayed in MBF Bioscience software as green. The second channel of Image[1], source”1”, is displayed in MBF Bioscience software as blue.</em></p>
+</div>
+<div class="section" id="thumbnail">
+<h3>4.6 &lt;thumbnail&gt;<a class="headerlink" href="#thumbnail" title="Permalink to this headline">¶</a></h3>
+<p>The &lt;thumbnail&gt; element stores data to create a small graphical (64x64) representation of the tracing data. Each of the 64 &lt;thumbnail-line&gt; elements represent one row in the thumbnail. The 64 pixels in each row are represented with a 3-byte hexadecimal (RRGGBB) alphanumeric character.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;thumbnail cols=&quot;64&quot; rows=&quot;64&quot;&gt;
+      &lt;thumbnail-line&gt;0xRR1GG1BB1RR2GG2BB2...RR64GG64BB64&lt;/thumbnail-line&gt;
+      &lt;thumbnail-line&gt;&lt;/thumbnail-line&gt;
+      ⋮
+    &lt;/thumbnail&gt;
+</pre></div>
+</div>
+<p><em>Figure 13 The &lt;thumbnail&gt; element, child elements, attributes, and values as they apear in the segmentation data file. The cols and rows attributes define the pixel dimentions of the 2D traced data thumbnail. A &lt;thumbnail-line&gt; child elements is present for every row of the &lt;thumbnail&gt;, but it is abbriviated here for concision. There are RRGGBB characters for each column of the data file. In the figure, the subscript numbers indicate the column number for the character.</em></p>
+</div>
+</div>
+<div class="section" id="trace-data">
+<h2>5.Trace Data<a class="headerlink" href="#trace-data" title="Permalink to this headline">¶</a></h2>
+<p>The traced data elements include all data models of neuromorphological structures and additional image annotations. A data file will not necessarily contain all traced data elements. Typically a data file will include more than one of a single traced element in a data file. For example, there may be many contours of the same contour type and/or of a different contour type depending on what has been segmented. Figure 14 demonstrates the general organization of all trace data elements with a neuromorphological data file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;mbf ...&gt;
+  HEADER ELEMENTS
+  &lt;contour&gt;&lt;/contour&gt;
+  &lt;marker&gt;&lt;/marker&gt;
+  &lt;arrow&gt;&lt;/arrow&gt;
+  &lt;tree&gt;
+    &lt;spine&gt;&lt;/spine&gt;
+    &lt;varicosity&gt;&lt;/varicosity&gt;
+  &lt;/tree&gt;
+  &lt;vessel&gt;&lt;/vessel&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;scalebar&gt;&lt;/scalebar&gt;
+&lt;/mbf&gt;
+</pre></div>
+</div>
+<p><em>Figure 14 Demonstrates the organization of all traced data elements in the Neuromorphological file format. All traced data and header elements are child elements of  the &lt;mbf&gt; element. The &lt;spine&gt; and &lt;varicosity&gt; elements are child elements of the &lt;tree&gt;. The order and number of these elements within the parent &lt;tree&gt; may vary. The header elements are represented with the HEADER ELEMENTS comment and do not actually appear this way in the data file. They have been abbreviated to focus attention on the traced data elements.</em></p>
+<div class="section" id="common-components">
+<h3>5.1 Common Components<a class="headerlink" href="#common-components" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="color">
+<h4>5.1.1 Color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h4>
+<p>The color attribute is seen in many neuromorphological file elements. It uses a 3-byte hexadecimal (RRGGBB) alphanumeric character to represent the color of traced structures.</p>
+</div>
+<div class="section" id="point">
+<h4>5.1.2 &lt;point&gt;<a class="headerlink" href="#point" title="Permalink to this headline">¶</a></h4>
+<p>The nested element &lt;point&gt; is included in several elements of the neuromorphological  file format to denote a point at a distinct X, Y, and Z location with a 3D micrometer coordinate space. The &lt;point&gt; element also includes a diameter value indicating the thickness at that point. These coordinates are represented using the corresponding x, y, z, and d attributes and are always in micrometer units.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">point</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x.xx&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y.yy&quot;</span> <span class="n">z</span><span class="o">=</span><span class="s2">&quot;z.zz&quot;</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot;d.dd&quot;</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 15 The &lt;point&gt; element, attributes, and values as they apear in the segmentation data file.</em></p>
+</div>
+<div class="section" id="property-name-channel">
+<h4>5.1.3 &lt;property name=”Channel”&gt;<a class="headerlink" href="#property-name-channel" title="Permalink to this headline">¶</a></h4>
+<p>The “Channel” &lt;property&gt; indicates the image color channel used to trace an object. If a detection is performed on only one of the image color channels, then that image channel is reported for the detected data element. If the detection is performed on two or more color channels, the &lt;property name= “Channel”&gt; element will not be written for that structure. If the image is monochrome, the &lt;property name= “Channel”&gt; element will not be written for any structure. Child elements are expected to be detected in the same color channel as their parent structure. For example, a &lt;branch&gt;, &lt;spine&gt;, or &lt;varicosity&gt; is expected to be detected in the same color channel as the associated &lt;tree&gt;.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Line</span><span class="c1">#  Neuromorphological Data File</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="o">&lt;</span><span class="nb">property</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Channel&quot;</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">n</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">n</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span>    <span class="o">&lt;</span><span class="n">c</span><span class="o">&gt;</span><span class="c1">#RRGGBB&lt;/c&gt;&lt;/property&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 16 The &lt;property name=”Channel” &gt; element, attributes, and values. The line numbers and return spaces present in the figure above were added for clarity and do not exist in the data file structure. The line numbers correspond with the numbered values in Table 6. The “Channel” values actually appear as a string.</em></p>
+<p><em>Table 6 The &lt;property name=”Channel”&gt; element, values, and descriptions for all fields.</em></p>
+</div>
+<div class="section" id="property-name-set">
+<h4>5.1.4 &lt;property name=”Set”&gt;<a class="headerlink" href="#property-name-set" title="Permalink to this headline">¶</a></h4>
+<p>The &lt;property&gt; named “Set” can be found in any trace data element. The &lt;property&gt; is used to name and group one or many trace data elements. These elements can either be the same type (ex. just &lt;tree&gt; elements) or different types (ex. &lt;marker&gt;, &lt;tree&gt;, and &lt;contour&gt; elements). A set has one value that is a text string indicating the name of that set. An element can be associated with multiple “Set” properties.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">contour</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Soma 1&quot;</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#FFFF00&quot;</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;Contour&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nb">property</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GUID&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">property</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nb">property</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;FillDensity&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">property</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nb">property</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Set&quot;</span><span class="o">&gt;&lt;</span><span class="n">s</span><span class="o">&gt;</span><span class="n">EXAMPLE</span> <span class="n">SET</span> <span class="n">NAME</span><span class="o">&lt;/</span><span class="n">s</span><span class="o">&gt;&lt;/</span><span class="nb">property</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">point</span> <span class="o">.../&gt;</span>
+<span class="o">&lt;/</span><span class="n">contour</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><em>Figure 17 An example of the  “Set”  &lt;property&gt; and its text string value, &lt;s&gt;EXAMPLE SET NAME&lt;/s&gt;. In this example, the &lt;contour&gt; element “Soma 1” has been placed into a set called EXAMPLE SET NAME. The &lt;contour&gt; includes the child  element &lt;property name=”Set”&gt; and the unique set name to indicate it belongs to the group of trace elements.</em></p>
+</div>
+</div>
+<div class="section" id="marker">
+<h3>5.2 &lt;marker&gt;<a class="headerlink" href="#marker" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="punctum">
+<h3>5.3 Punctum<a class="headerlink" href="#punctum" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="contour">
+<h3>5.4 &lt;contour&gt;<a class="headerlink" href="#contour" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="neurons">
+<h3>5.5 Neurons<a class="headerlink" href="#neurons" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tree">
+<h4>5.5.1 &lt;tree&gt;<a class="headerlink" href="#tree" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="somas-and-cell-bodies">
+<h4>5.5.2 Somas and Cell Bodies<a class="headerlink" href="#somas-and-cell-bodies" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="vascular-networks">
+<h3>5.6 Vascular Networks<a class="headerlink" href="#vascular-networks" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="vessel">
+<h4>5.6.1 &lt;vessel&gt;<a class="headerlink" href="#vessel" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="annotations">
+<h3>5.7 Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="arrow">
+<h4>5.7.1 &lt;arrow&gt;<a class="headerlink" href="#arrow" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="text">
+<h4>5.7.2 &lt;text&gt;<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="scalebar">
+<h4>5.7.3 &lt;scalebar&gt;<a class="headerlink" href="#scalebar" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>6. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The version number given here is for the neuromorphological file specification and is independent of the version number for the Neuromophological file format and any MBF Bioscience Software. The date after the version number is the last modification date of this document.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Neuromophological File Specification</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Neuromorphological File Specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#definitions">1. Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-the-neuromorphological-file-format">2. Introduction to the Neuromorphological File Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#neuromorphological-file-contents">3. Neuromorphological File Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coordinate-space">3.1 Coordinate Space</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#header-elements">4. Header Elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">4.1 &lt;description&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filefacts">4.2 &lt;filefacts&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sparcdata">4.3 &lt;sparcdata&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property-name-timepointmanager">4.4 &lt;property name=”TimePointManager”&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#images">4.5 &lt;images&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thumbnail">4.6 &lt;thumbnail&gt;</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-data">5.Trace Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-components">5.1 Common Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#color">5.1.1 Color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#point">5.1.2 &lt;point&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property-name-channel">5.1.3 &lt;property name=”Channel”&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property-name-set">5.1.4 &lt;property name=”Set”&gt;</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#marker">5.2 &lt;marker&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#punctum">5.3 Punctum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contour">5.4 &lt;contour&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#neurons">5.5 Neurons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tree">5.5.1 &lt;tree&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#somas-and-cell-bodies">5.5.2 Somas and Cell Bodies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#vascular-networks">5.6 Vascular Networks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vessel">5.6.1 &lt;vessel&gt;</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#annotations">5.7 Annotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arrow">5.7.1 &lt;arrow&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text">5.7.2 &lt;text&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scalebar">5.7.3 &lt;scalebar&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">6. References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Release.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Legal.html">Legal</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to the Neuromorphological File Specification</a></li>
+      <li>Next: <a href="Release.html" title="next chapter">Release Notes</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, MBF Bioscience.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/NMF.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

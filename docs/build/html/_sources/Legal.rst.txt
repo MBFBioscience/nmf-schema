@@ -1,0 +1,8 @@
+Legal
+=====
+
+Copyright
+^^^^^^^^^
+
+License
+^^^^^^^
