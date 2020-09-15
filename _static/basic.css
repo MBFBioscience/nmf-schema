@@ -17,7 +17,7 @@ div.clearer {
 
 div.section::after {
     display: block;
-    content: '';
+    contents: '';
     clear: left;
 }
 
