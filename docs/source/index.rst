@@ -13,11 +13,3 @@ Welcome to the Neuromorphological File Specification
    Release
    Credits
    Legal
-   
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
