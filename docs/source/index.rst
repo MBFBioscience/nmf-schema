@@ -2,11 +2,12 @@ Welcome to the Neuromorphological File Specification
 ====================================================
 
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
+.. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neurolucida-users/neurolucida-360/19>`_
+
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
+   :caption: Table of Contents
  
    NMF
    Release

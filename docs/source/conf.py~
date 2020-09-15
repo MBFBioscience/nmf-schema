@@ -16,12 +16,6 @@
 
 import sphinx_rtd_theme
 
-
-def setup(app):
-    app.add_css_file("theme_overrides.css") #overrides for wide tables in RTD theme
-
-
-
 # -- Project information -----------------------------------------------------
 
 project = 'Neuromophological File Specification'

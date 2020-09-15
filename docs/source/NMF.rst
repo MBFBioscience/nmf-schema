@@ -4,6 +4,8 @@ Neuromorphological File Specification
 
 Version 1.0.0 [1]_
 
+.. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neurolucida-users/neurolucida-360/19>`_ 
+
 
 1. Definitions
 --------------
@@ -1209,7 +1211,7 @@ Each spine element has 7 <property> elements named: “Class”, “Color”, �
 
 .. code-block:: xml
 
-    Line#	Neuromorphological Data File
+    Line#   Neuromorphological Data File
      [0]    <property name="GeneratedMetrics">
      [1]    <n>1</n>
      [2]    <n>n.nnnnnn</n>
@@ -1330,7 +1332,7 @@ Each spine element has 7 <property> elements named: “Class”, “Color”, �
 
 .. code-block:: xml
 
-    Line#   Neuromorphological Data File                                 A
+    Line#   Neuromorphological Data File                                
      [0]    <property name="Backbone">
      [1]    <n>5</n>
      [2]    <n>x.xxxxxx</n>
@@ -1352,12 +1354,12 @@ Each spine element has 7 <property> elements named: “Class”, “Color”, �
     [18]    <n>x.xxxxxx</n>
     [19]    <n>y.yyyyyy</n>
     [20]    <n>z.zzzzzz</n>
-    [21]    <n>d.dddddd</n></property>
+    [21]    <n>d.dddddd</n></property>                                                             A
 
 .. image:: Figures/3.png
-    :width: 400px
+    :width: 300px
     :align: center
-    :height: 300px
+    :height: 275px
     :alt: 
 
 *Figure 30 (a) The “Backbone” <property> of a <spine> includes a string of numbers. The line numbers and return spaces present in the figure above were added for clarity and do not exist in the data file structure. The “Backbone” values actually appear as a string as demonstrated in the “Backbone” <property> of Figure 27. The first five line numbers correspond with the numbered values in Table 16 that provides a definition for each value. The values from line [2] through [21] make up each of the five <spine> coordinates (x, y, z, and d). The first point (x, y, z, and d) listed is the insertion point where the <spine> is located along the <tree>. (b) A diagram of a <spine> along a neuronal tree. The five points of the <spine> are represented with circles. The coordinates of these points are reported in the <property name=”Backbone” number string including an x, y, and z location along with a thickness, d. The <spine> head is marked in the figure with a gray circle.*
@@ -1590,7 +1592,7 @@ Each attribute of the varicosity element is described in Table 18.
 *Figure 33 Multiple <contour> elements  named “Soma N”, indicating all <contour> elements make up a single cell body. The cell body <contour> contains the same child elements, attributes, and values of a <contour>. These have been abbriviated in the figure with a verticle ellipsis for the last three <contour> elements. The <property name=” “> child elements of the first <contour> listed exclude all values for concision. The <point> attributes have been abbriviated in this figure with an ellipsis. A contour usually contains a list of many <point> elements, connected based on the order they are listed. These have also been abbriviated in the figure with a vertical ellipsis.*
 
 
-Note: It’s possible that data files may represent cell bodies with a contour name=”CellBody” and the closed attribute will equal “false”. This represents a closed cell body contour despite being marked as open.
+.. note::  It’s possible that data files may represent cell bodies with a contour name=”CellBody” and the closed attribute will equal “false”. This represents a closed cell body contour despite being marked as open.
 
 
 5.6 Vascular Networks
