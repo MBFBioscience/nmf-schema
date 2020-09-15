@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
 
   
   
@@ -200,7 +201,11 @@
             
   <div class="section" id="neuromorphological-file-specification">
 <h1>Neuromorphological File Specification<a class="headerlink" href="#neuromorphological-file-specification" title="Permalink to this headline">¶</a></h1>
-<p>Version 1.0.0 <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
+<p>Version 1.0.0 <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For additional information, visit MBF Bioscience’s user forum for the <a class="reference external" href="https://forums.mbfbioscience.com/c/neurolucida-users/neurolucida-360/19">Neuromorphological File Specification.</a></p>
+</div>
 <div class="section" id="definitions">
 <h2>1. Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
@@ -1544,7 +1549,7 @@ is 0.</p></td>
 </tbody>
 </table>
 <p><em>Table 14 The &lt;property&gt; child elements of a &lt;spine&gt;, their values, and a description for each field.</em></p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>Line#       Neuromorphological Data File
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>Line#   Neuromorphological Data File
  [0]    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;GeneratedMetrics&quot;</span><span class="nt">&gt;</span>
  [1]    <span class="nt">&lt;n&gt;</span>1<span class="nt">&lt;/n&gt;</span>
  [2]    <span class="nt">&lt;n&gt;</span>n.nnnnnn<span class="nt">&lt;/n&gt;</span>
@@ -1755,7 +1760,7 @@ foreground voxels within the spine.</p></td>
 </tbody>
 </table>
 <p><em>Table 15 The &lt;property name=”GeneratedMetrics”&gt; element, its values, and a descriptions for all fields. The Line # column corresponds to the line numbers in Figure 29.</em></p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>Line#   Neuromorphological Data File                                 A
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>Line#   Neuromorphological Data File
  [0]    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;Backbone&quot;</span><span class="nt">&gt;</span>
  [1]    <span class="nt">&lt;n&gt;</span>5<span class="nt">&lt;/n&gt;</span>
  [2]    <span class="nt">&lt;n&gt;</span>x.xxxxxx<span class="nt">&lt;/n&gt;</span>
@@ -1777,10 +1782,10 @@ foreground voxels within the spine.</p></td>
 [18]    <span class="nt">&lt;n&gt;</span>x.xxxxxx<span class="nt">&lt;/n&gt;</span>
 [19]    <span class="nt">&lt;n&gt;</span>y.yyyyyy<span class="nt">&lt;/n&gt;</span>
 [20]    <span class="nt">&lt;n&gt;</span>z.zzzzzz<span class="nt">&lt;/n&gt;</span>
-[21]    <span class="nt">&lt;n&gt;</span>d.dddddd<span class="nt">&lt;/n&gt;&lt;/property&gt;</span>
+[21]    <span class="nt">&lt;n&gt;</span>d.dddddd<span class="nt">&lt;/n&gt;&lt;/property&gt;</span>                                                             A
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/3.png"><img alt="" class="align-center" src="_images/3.png" style="width: 400px; height: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/3.png"><img alt="" class="align-center" src="_images/3.png" style="width: 300px; height: 275px;" /></a>
 <p><em>Figure 30 (a) The “Backbone” &lt;property&gt; of a &lt;spine&gt; includes a string of numbers. The line numbers and return spaces present in the figure above were added for clarity and do not exist in the data file structure. The “Backbone” values actually appear as a string as demonstrated in the “Backbone” &lt;property&gt; of Figure 27. The first five line numbers correspond with the numbered values in Table 16 that provides a definition for each value. The values from line [2] through [21] make up each of the five &lt;spine&gt; coordinates (x, y, z, and d). The first point (x, y, z, and d) listed is the insertion point where the &lt;spine&gt; is located along the &lt;tree&gt;. (b) A diagram of a &lt;spine&gt; along a neuronal tree. The five points of the &lt;spine&gt; are represented with circles. The coordinates of these points are reported in the &lt;property name=”Backbone” number string including an x, y, and z location along with a thickness, d. The &lt;spine&gt; head is marked in the figure with a gray circle.</em></p>
 <table class="docutils align-default">
 <colgroup>
@@ -2098,7 +2103,10 @@ is attached.</p></td>
 </pre></div>
 </div>
 <p><em>Figure 33 Multiple &lt;contour&gt; elements  named “Soma N”, indicating all &lt;contour&gt; elements make up a single cell body. The cell body &lt;contour&gt; contains the same child elements, attributes, and values of a &lt;contour&gt;. These have been abbriviated in the figure with a verticle ellipsis for the last three &lt;contour&gt; elements. The &lt;property name=” “&gt; child elements of the first &lt;contour&gt; listed exclude all values for concision. The &lt;point&gt; attributes have been abbriviated in this figure with an ellipsis. A contour usually contains a list of many &lt;point&gt; elements, connected based on the order they are listed. These have also been abbriviated in the figure with a vertical ellipsis.</em></p>
-<p>Note: It’s possible that data files may represent cell bodies with a contour name=”CellBody” and the closed attribute will equal “false”. This represents a closed cell body contour despite being marked as open.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s possible that data files may represent cell bodies with a contour name=”CellBody” and the closed attribute will equal “false”. This represents a closed cell body contour despite being marked as open.</p>
+</div>
 </div>
 </div>
 <div class="section" id="vascular-networks">
@@ -2511,7 +2519,7 @@ the units are hidden.</p></td>
 <li><p>Allen Mouse Brain Atlas Lein, E.S. et al. (2007) Genome-wide atlas of gene expression in the adult mouse brain, Nature 445: 168-176. doi:10.1038/nature05453</p></li>
 </ol>
 <dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>The version number given here is for the neuromorphological file specification and is independent of the version number for the Neuromophological file format and any MBF Bioscience Software. The date after the version number is the last modification date of this document.</p>
 </dd>
 </dl>
