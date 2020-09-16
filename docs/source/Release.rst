@@ -2,7 +2,7 @@ Release Notes
 =============
 
 
-Version 4.0.0 (Insert Publicaiton Date Here)
+Version 1.0.0 (September 16, 2020)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
