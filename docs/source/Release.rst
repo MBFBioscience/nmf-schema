@@ -1,3 +1,9 @@
+.. image:: Figures/MBFLogo_GrayScale.jpg
+    :width: 108px
+    :align: right
+    :height: 70px
+
+
 Release Notes
 =============
 
