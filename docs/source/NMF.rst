@@ -18,20 +18,20 @@ Version 1.0.0 [1]_
 ------------------------------------------------------
 
 
-This specification describes the elements of the neuromorphological data file. The structures represented have been continually developed for over 30 years, balancing accurate 3D representation of microscopic structures with the efficiency for reading, writing, storing, and rendering the reconstruction data. The neuromorphological file format balances structure with flexibility by storing each modeled object as a unique data element, and providing mechanisms for grouping any number and type of data elements. File-level metadata is stored that provides detail on the sample origin to ensure no important source information is separated from the corresponding data. Each structure implemented has had a strong influence from top neuroscientists to maintain a meaningful model and provide the necessary analysis options for that entity. The file specification will continue to be updated as needed to define added or modified data elements.
+This specification describes the elements of the neuromorphological data file. The structures represented have been continually developed for over 30 years, balancing accurate 3D representation of microscopic structures with the efficiency for reading, writing, storing, and rendering the reconstruction data. The neuromorphological file format balances structure with flexibility by storing each modeled object as a unique data element, and providing mechanisms for grouping any number and type of data elements. File-level metadata is retained to provide detail on the origin of the sample, ensuring that the provenance of derivative data is tracked and that important source information is not separated from the corresponding data. The decision to implement each neuromorphological structure, from spines to varicosities, was influenced by top neuroscientists who sought to maintain a meaningful model and have the necessary analysis options for that entity. The file specification has evolved with academia and discovery, and will continue to be updated as needed to define added or modified data elements.
 
 
 3. Neuromorphological File Contents
 -----------------------------------
 
 
-The neuromorphological file format is an Extensible Markup Language (XML) 1.0 (Fifth Edition) format and includes two organizational aspects, elements, and attributes [1]. These aspects are detailed in the neuromorphological file specification provided by The World Wide Web Consortium (WC3). All neuromorphological data files have a header section that includes the file's introductory content followed by any traced data elements. Traced data elements are representations of a diverse range of neuromorphological structures found in microscopy image data.
+The neuromorphological file format is an Extensible Markup Language (XML) 1.0 (Fifth Edition) format and includes two organizational aspects, elements, and attributes [1]. These aspects are detailed in the XML specification provided by The World Wide Web Consortium (WC3). All neuromorphological data files have a header section that includes the file's introductory content followed by any traced data elements. Traced data elements are representations of a diverse range of neuromorphological structures found in microscopy image data.
 
  
 .. code-block:: xml
 
 	<?xml version="1.0" encoding="ISO-8859-1"?>
-	<mbf version= 4.0 appname="ApplicationName" appversion="YYYY.V.M" apprrid="SCR_xxxxx" insrrid="SCR_xxxxx">
+	<mbf version="4.0" appname="ApplicationName" appversion="YYYY.V.M" apprrid="SCR_xxxxx" insrrid="SCR_xxxxx">
 	  <description></description>
 	  <filefacts></filefacts>
 	  <sparcdata></sparcdata>
