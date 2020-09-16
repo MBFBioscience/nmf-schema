@@ -338,76 +338,59 @@ The <images> element in the header can contain one or many <image> elements enab
 
 Within each <image> element, five nested elements provide details pertaining to that image(s).
 
-+---------------+--------------+------------------------------------+
-| **Element**   | **Attribute**| **Description**                    |
-+===============+==============+====================================+
-| <image>                      | The <images> element can contain   |
-|                              | one or many nested <image> child   |
-|                              | elements. This enables the         |
-|                              | neuromorphological data file to be |
-|                              | associated with any number of      | 
-|                              | source images.                     |
-+---------------+--------------+------------------------------------+
-|    <filename>                | The windows file path and name of  |
-|                              | the associated image.              |
-+---------------+--------------+------------------------------------+
-|    <channels>                | Defines the colors of each channel |
-|                              | if the channels are merged from    |
-|                              | separate image files.              |
-+---------------+--------------+------------------------------------+
-|               | merge        | The value of the merge attribute   |
-|               |              | will be “yes” if the channels have |
-|               |              | been merged from separate image    |
-|               |              | files and “no” if they have not.   |
-+---------------+--------------+------------------------------------+
-|    <channel>                 | Three <channel> child elements for |
-|                              | the color channels, red, green, and| 
-|                              | blue are always reported. Their    |
-|                              | unique id and source attributes    |
-|                              | define the channel color and       |
-|                              | source.                            |
-+---------------+--------------+------------------------------------+
-|               | id           | Identifies the pseudocolor of the  |
-|               |              | color channel.                     |
-+---------------+--------------+------------------------------------+
-|               | source       | Records the selected color channel |
-|               |              | number from the corresponding      |
-|               |              | source image in the <filename>     |
-|               |              | element. Starts at 0.              |
-+---------------+--------------+------------------------------------+
-|    <scale>                   | The size of each pixel in x and y. |
-+---------------+--------------+------------------------------------+
-|               | x            | The X scaling of the image in      |
-|               |              | µm/pixel.                          |
-+---------------+--------------+------------------------------------+
-|               | y            | The Y scaling of the image in      |
-|               |              | µm/pixel.                          |
-+---------------+--------------+------------------------------------+
-|    <coord>                   | Reports the attributes and values  |
-|                              | for the X, Y, and Z coordinates of |
-|                              | the upper, left-hand corner of the |
-|                              | image.                             |
-+---------------+--------------+------------------------------------+
-|               | x            | The X location of the image origin |
-|               |              | (µm).                              |
-+---------------+--------------+------------------------------------+
-|               | y            | The Y location of the image origin |
-|               |              | (µm).                              |
-+---------------+--------------+------------------------------------+
-|               | z            | The Z location of the image origin |
-|               |              | (µm).                              |
-+---------------+--------------+------------------------------------+
-|    <zspacing>                | The zspacing element uses the z and|
-|                              | slices attributes to describe the  |
-|                              | relationship of image planes that  |
-|                              | compile into a 3D image.           |
-+---------------+--------------+------------------------------------+
-|               | z            | Spacing between each image plane in|
-|               |              | micrometer units.                  |
-+---------------+--------------+------------------------------------+
-|               | slices       | The total number of image planes in|
-|               |              | a 3D image.                        |
-+---------------+--------------+------------------------------------+
++-----------+-------------+-------------------------------------------------------+
+|**Element**|**Attribute**| **Description**                                       |
++===========+=============+=======================================================+
+| <image>                 | The <images> element can contain one or many nested   |
+|                         | <image> child elements. This enables the              |
+|                         | neuromorphological data file to be associated with any| 
+|                         | number of source images.                              |
++-----------+-------------+-------------------------------------------------------+
+|    <filename>           | The windows file path and name of the associated      |
+|                         | image.                                                |
++-----------+-------------+-------------------------------------------------------+
+|    <channels>           | Defines the colors of each channel if the channels are|
+|                         | merged from separate image files.                     |
++-----------+-------------+-------------------------------------------------------+
+|           | merge       | The value of the merge attribute will be “yes” if the |
+|           |             | channels have been merged from separate image files   |
+|           |             | and “no” if they have not.                            |
++-----------+-------------+-------------------------------------------------------+
+|    <channel>            | Three <channel> child elements for the color channels,|
+|                         | red, green, and blue are always reported. Their unique|
+|                         | id and source attributes define the channel color and |
+|                         | source.                                               |
++-----------+-------------+-------------------------------------------------------+
+|           | id          | Identifies the pseudocolor of the color channel.      |
++-----------+-------------+-------------------------------------------------------+
+|           | source      | Records the selected color channel number from the    |
+|           |             | corresponding source image in the <filename> element. |
+|           |             | Starts at 0.                                          |
++-----------+-------------+-------------------------------------------------------+
+|    <scale>              | The size of each pixel in x and y.                    |
++-----------+-------------+-------------------------------------------------------+
+|           | x           | The X scaling of the image in µm/pixel.               |
++-----------+-------------+-------------------------------------------------------+
+|           | y           | The Y scaling of the image in µm/pixel.               |
++-----------+-------------+-------------------------------------------------------+
+|    <coord>              | Reports the attributes and values for the X, Y, and Z |
+|                         | coordinates of the upper, left-hand corner of the     |
+|                         | image.                                                |
++-----------+-------------+-------------------------------------------------------+
+|           | x           | The X location of the image origin (µm).              |
++-----------+-------------+-------------------------------------------------------+
+|           | y           | The Y location of the image origin (µm).              |
++-----------+-------------+-------------------------------------------------------+
+|           | z           | The Z location of the image origin (µm).              |
++-----------+-------------+-------------------------------------------------------+
+|    <zspacing>           | The zspacing element uses the z and slices attributes |
+|                         | to describe the relationship of image planes that     |
+|                         | compile into a 3D image.                              |
++-----------+-------------+-------------------------------------------------------+
+|           | z           | Spacing between each image plane in micrometer units. |
++-----------+-------------+-------------------------------------------------------+
+|           | slices      | The total number of image planes in a 3D image.       |
++-----------+-------------+-------------------------------------------------------+
 
 *Table 5 The <image> element, its child elements, attributes, and descriptions for all fields.*
 
@@ -571,34 +554,26 @@ The “Channel” <property> indicates the image color channel used to trace an 
 
 
 
-+----------------+------------+----------------+-----------------+
-| **<property>** | **Line #** | **Value**      | **Description** |
-+================+============+================+=================+
-| name=”Channel”                               | Contains three  |
-|                                              | values that     |
-|                                              | describe the    |
-|                                              | channel an      |
-|                                              | element was     |
-|                                              | detected in.    |
-+----------------+------------+----------------+-----------------+
-|                | [1]        | version        | The Channel     |
-|                |            |                | child element's |
-|                |            |                | format version. |
-+----------------+------------+----------------+-----------------+
-|                | [2]        | channel number | Indicates the   |
-|                |            |                | color channel   |
-|                |            |                | number of the   |
-|                |            |                | source image a  |
-|                |            |                | trace element   |
-|                |            |                | was detected in |
-|                |            |                | starting at 0.  |
-+----------------+------------+----------------+-----------------+
-|                | [3]        | channel color  | The color of    |
-|                |            |                | this channel is |
-|                |            |                | reported as     |
-|                |            |                | a hex           |
-|                |            |                | adecimal value. |
-+----------------+------------+----------------+-----------------+
++--------------+--------+----------------+------------------------------+
+|**<property>**|**Line**|**Value**       |**Description**               |
+|              |**#**   |                |                              |
++==============+========+================+==============================+
+| name=”Channel”                         | Contains three values that   |
+|                                        | describe the channel an      |
+|                                        | element was detected in.     |
++--------------+--------+----------------+------------------------------+
+|              | [1]    | version        | The Channel child element’s  |
+|              |        |                | format version.              |
++--------------+--------+----------------+------------------------------+
+|              | [2]    | channel number | Indicates the color channel  |
+|              |        |                | number of the source image a |
+|              |        |                | trace element was detected in|
+|              |        |                | starting at 0.               |
++--------------+--------+----------------+------------------------------+
+|              | [3]    | channel color  | The color of this channel is |
+|              |        |                | reported as a hex adecimal   |
+|              |        |                | value.                       |
++--------------+--------+----------------+------------------------------+
 
 
 *Table 6 The <property name=”Channel”> element, values, and descriptions for all fields.*
