@@ -11,7 +11,7 @@ Neuromorphological File Specification
 
 Version 1.0.0 [1]_
 
-.. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neurolucida-users/neurolucida-360/19>`_ 
+.. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neuromorphological-file-specification/34>`_ 
 
 
 1. Definitions
