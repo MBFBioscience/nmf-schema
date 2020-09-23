@@ -9,7 +9,7 @@ Neuromorphological File Specification
 =====================================
 
 
-Version 1.0.0 [1]_
+Version 4.0.0 [1]_
 
 .. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neuromorphological-file-specification/34>`_ 
 
@@ -1905,5 +1905,5 @@ The <scalebar> element stores information on a 2D scalebar set to a user-defined
 2.	ISO/IEC 885901:1998 Information technology- 8-bit single byte coded graphic character sets https://www.iso.org/obp/ui/#iso:std:iso-iec:8859:-1:ed-1:v1:en
 3.	Allen Mouse Brain Atlas Lein, E.S. et al. (2007) Genome-wide atlas of gene expression in the adult mouse brain, Nature 445: 168-176. doi:10.1038/nature05453
 
-.. [1] The version number given here is for the neuromorphological file specification and is independent of the version number for the Neuromophological file format and any MBF Bioscience Software. The date after the version number is the last modification date of this document.
+.. [1] The version number given here is for the neuromorphological file specification and is independent of the version number in any XML data file and any MBF Bioscience Software.
 
