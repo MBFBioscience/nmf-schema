@@ -31,6 +31,7 @@ This specification describes the elements of the neuromorphological data file. T
 3. Neuromorphological File Contents
 -----------------------------------
 
+.. note::  The elements defined in the Neuromorpholocial File Specification (4.0) are only consistent with elements in XML data files with the <mbf version="4.0">. XML data files with prior version numbers may contain similar element structures, but will not exactly match this documentation. 
 
 The neuromorphological file format is an Extensible Markup Language (XML) 1.0 (Fifth Edition) format and includes two organizational aspects, elements, and attributes [1]. These aspects are detailed in the XML specification provided by The World Wide Web Consortium (WC3). All neuromorphological data files have a header section that includes the file's introductory content followed by any traced data elements. Traced data elements are representations of a diverse range of neuromorphological structures found in microscopy image data.
 
