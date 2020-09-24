@@ -52,7 +52,7 @@ You must give appropriate credit, provide a link to the license, and indicate if
 1. Retain the following:
 
 
-	a. Identification of the `authors,https://neuromorphological-file-specification.readthedocs.io/en/latest/Credits.html>`_  of the Neuromophological File Specification and publishing company (MBF Bioscience).
+	a. Identification of the `authors <https://neuromorphological-file-specification.readthedocs.io/en/latest/Credits.html>`_  of the Neuromophological File Specification and publishing company (MBF Bioscience).
 	
 	
 	b. A copyright notice;
