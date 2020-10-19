@@ -51,7 +51,7 @@ The neuromorphological file format is an Extensible Markup Language (XML) 1.0 (F
 	
 	</mbf>
 	
-*Figure 1 A Neuromorphological data file.  The header elements are displayed in blue. All MBF tracing data is a nested element of the <mbf> element and is represented above with the comment, TRACING DATA.*
+*Figure 1 A Neuromorphological data file.  The header elements are displayed in green. All MBF tracing data is a nested element of the <mbf> element and is represented above with the comment, TRACING DATA.*
 
 
 3.1 Coordinate Space 
@@ -77,7 +77,7 @@ The first line of all neuromorphological data files is always the XML declaratio
 
     <?xml version="1.0" encoding="ISO-8859-1"?>
 
-*Figure 3 The XML document declaration element, attributes, and values as they apear in the segmentation data file.*
+*Figure 3 The XML document declaration element, attributes, and values as they apear in the data file.*
 
 
 +------------+------------+--------------------------------------------------+
@@ -87,14 +87,14 @@ The first line of all neuromorphological data files is always the XML declaratio
 |                         | and storage units of the document.               |
 +------------+------------+--------------------------------------------------+
 |            | version	  | The XML document specification version number.   | 
-|            |            | For all segmentation files created with MBF      |
+|            |            | For all data files created with MBF      |
 |            |            | Bioscience software, this value will equal "1.0" |
 |            |            | indicating the version of the XML specification  |
 |            |            | [1].                                             |
 +            +------------+--------------------------------------------------+
 |            | encoding	  | Identifies the character format in the file.     |
 |            |            | This value will equal "ISO-8859-1" for all       |
-|            |            | segmentation files created with MBF Bioscience   |
+|            |            | data files created with MBF Bioscience   |
 |            |            | software, implying single-byte encoding [2].     |
 +------------+------------+--------------------------------------------------+
 
@@ -111,7 +111,7 @@ The remainder of the data file is embedded within the <mbf> element, including f
       ⋮
     </mbf>
 
-*Figure 4 The <mbf> element, attributes, and values as they apear in the segmentation data file. The appversion for all MBF Bioscience software is reported with the year, version, and minor version (YYYY.V.M). The virtical elipses between the attributes of the <mbf> elements  and the </mbf> end tag is used as shorthand to indicate there are additional child elements of the <mbf> element that are not detailed in this figure.*
+*Figure 4 The <mbf> element, attributes, and values as they apear in the data file. The appversion for all MBF Bioscience software is reported with the year, version, and minor version (YYYY.V.M). The virtical elipses between the attributes of the <mbf> elements  and the </mbf> end tag is used as shorthand to indicate there are additional child elements of the <mbf> element that are not detailed in this figure.*
 
 
 The following attributes reside directly within the <mbf> element:
@@ -480,7 +480,7 @@ The <thumbnail> element stores data to create a small graphical (64x64) represen
         ⋮
     </thumbnail>
 
-*Figure 13 The <thumbnail> element, child elements, attributes, and values as they apear in the segmentation data file. The cols and rows attributes define the pixel dimentions of the 2D traced data thumbnail. A <thumbnail-line> child elements is present for every row of the <thumbnail>, but it is abbriviated here for concision. There are RRGGBB characters for each column of the data file. In the figure, the subscript numbers indicate the column number for the character.*
+*Figure 13 The <thumbnail> element, child elements, attributes, and values as they apear in the data file. The cols and rows attributes define the pixel dimentions of the 2D traced data thumbnail. A <thumbnail-line> child elements is present for every row of the <thumbnail>, but it is abbriviated here for concision. There are RRGGBB characters for each column of the data file. In the figure, the subscript numbers indicate the column number for the character.*
 
 
 5.Trace Data
@@ -533,7 +533,7 @@ The nested element <point> is included in several elements of the neuromorpholog
 
     <point x="x.xx" y="y.yy" z="z.zz" d="d.dd"/>
 
-*Figure 15 The <point> element, attributes, and values as they apear in the segmentation data file.*
+*Figure 15 The <point> element, attributes, and values as they apear in the data file.*
 
 
 5.1.3 <property name="Channel">
@@ -616,7 +616,7 @@ The neuromorphological file format uses the <marker> element to represent single
        ⋮
     </marker>
 
-*Figure 18 The <marker> element, child elements, attributes, and values as they apear in the segmentation data file. This <marker> type is Plus and is linked to a + symobol.*
+*Figure 18 The <marker> element, child elements, attributes, and values as they apear in the data file. This <marker> type is Plus and is linked to a + symobol.*
 
 
 Each <marker> attribute, including type, color, name, and varicosity, is defined in Table 7.
@@ -887,7 +887,7 @@ A <contour> element is a named list of sequentially connected points. The <point
        ⋮
     </contour>
 
-*Figure 23 The <contour> element, child elements, attributes, and values as they apear in the segmentation data file. This contour is a closed contour indicating the first and last <point> elements are connected. In this figure, the <property name=” “> child elements exclude all values for concision. The <point> elements have been abbriviated in this figure. A contour usually contains a list of many <point> elements, connected in the order they are listed in the <contour>.*
+*Figure 23 The <contour> element, child elements, attributes, and values as they apear in the data file. This contour is a closed contour indicating the first and last <point> elements are connected. In this figure, the <property name=” “> child elements exclude all values for concision. The <point> elements have been abbriviated in this figure. A contour usually contains a list of many <point> elements, connected in the order they are listed in the <contour>.*
 
 
 The <contour> element contains four attributes. Each is defined in Table 10. 
@@ -1598,7 +1598,7 @@ Structures like vasculature or nerve bundles are be represented with a different
       <edgelists></edgelists>
     </vessel>
 
-*Figure 34 The <vessel> element, child elements, attributes, and values as they apear in the segmentation data file. In this figure, the vessel’s child elements do not include any child elements, attributes, and values for concision.*
+*Figure 34 The <vessel> element, child elements, attributes, and values as they apear in the data file. In this figure, the vessel’s child elements do not include any child elements, attributes, and values for concision.*
 
 
 The <vessel> elements can have edges that loop, whereas <tree> elements can only branch. The looping capability of the <vessel> elements is known as a graph structure and allows for the representation of biological structures such as anastomoses in vascular or neuronal networks.  
@@ -1649,7 +1649,7 @@ The <nodes> element contains nested <node> elements for each node found on that 
       ⋮
     </nodes>
 
-*Figure 35 The <nodes> child elment of a <vessel>, its child elements, attributes, and values as they apear in the segmentation data file. The <nodes> element includes many <node> child elements each with a unique ID and one  <point> child element. In this figure, some <point> and <node>  elements have been abriviated with ellipsis.*
+*Figure 35 The <nodes> child elment of a <vessel>, its child elements, attributes, and values as they apear in the data file. The <nodes> element includes many <node> child elements each with a unique ID and one  <point> child element. In this figure, some <point> and <node>  elements have been abriviated with ellipsis.*
 
 
 +-------------+--------------------------+--------------------------+
@@ -1692,7 +1692,7 @@ The next child element of the <vessel> is the <edges> element. It will contain a
       ⋮
     </edges>
 
-*Figure 36 The <edges> child elment of a <vessel>, its child elements, attributes, and values as they apear in the segmentation data file. The <edges> element includes many <edge> child elements each with a unique ID and a list of sequentially ordered  <point> child elements. In this figure, some <point> and <edge>  elements have been abriviated with ellipsis.*
+*Figure 36 The <edges> child elment of a <vessel>, its child elements, attributes, and values as they apear in the data file. The <edges> element includes many <edge> child elements each with a unique ID and a list of sequentially ordered  <point> child elements. In this figure, some <point> and <edge>  elements have been abriviated with ellipsis.*
 
 
 +-------------+--------------------------+--------------------------+
@@ -1778,7 +1778,7 @@ The <arrow> element includes two-point elements that connect to create the lengt
       <point x="x.xx" y="y.yy" z="z.zz" d="1.00"/>
     </arrow>
 
-*Figure 38  The <arrow> element, child elements, attributes, and values as they apear in the segmentation data file. The <point> coordinates represent the location of the head and tail of the arrow. Note that the diameter (d) of an <arrow> <point> is always set to “1.00”.*
+*Figure 38  The <arrow> element, child elements, attributes, and values as they apear in the data file. The <point> coordinates represent the location of the head and tail of the arrow. Note that the diameter (d) of an <arrow> <point> is always set to “1.00”.*
 
 
 +-------------+--------------------------+--------------------------+
@@ -1823,7 +1823,7 @@ User-defined text can be added to any location of a data file with the <text> el
       <value>ExampleText</value>
     </text>
 
-*Figure 39 The <text> element, child elements, attributes, and values as they apear in the segmentation data file. The <point> coordinates represent the location of the center of the text box. Note that the diameter (d) of the <text> <point> is always set to “0.00”.*
+*Figure 39 The <text> element, child elements, attributes, and values as they apear in the data file. The <point> coordinates represent the location of the center of the text box. Note that the diameter (d) of the <text> <point> is always set to “0.00”.*
 
 
 +-------------+--------------------------+--------------------------+
@@ -1866,7 +1866,7 @@ The <scalebar> element stores information on a 2D scalebar set to a user-defined
       <showunits>true</showunits>
     </scalebar>
 
-*Figure 40 The <scalebar> element, child elements, attributes, and values as they apear in the segmentation data file. The <point> coordinates represent the location of the center of the scale bar. Note that the diameter (d) of the <text> <point> is always set to “0.00”. This <scalebar> element has <showlabel> and <showunits> set to true indicating the length value of the scale bar and the units are displayed alongside the scale bar.*
+*Figure 40 The <scalebar> element, child elements, attributes, and values as they apear in the data file. The <point> coordinates represent the location of the center of the scale bar. Note that the diameter (d) of the <text> <point> is always set to “0.00”. This <scalebar> element has <showlabel> and <showunits> set to true indicating the length value of the scale bar and the units are displayed alongside the scale bar.*
 
 
 +----------------+-------------------------+-------------------------+
