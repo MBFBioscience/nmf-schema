@@ -87,14 +87,14 @@ The first line of all neuromorphological data files is always the XML declaratio
 |                         | and storage units of the document.               |
 +------------+------------+--------------------------------------------------+
 |            | version	  | The XML document specification version number.   | 
-|            |            | For all data files created with MBF      |
+|            |            | For all data files created with MBF              |
 |            |            | Bioscience software, this value will equal "1.0" |
 |            |            | indicating the version of the XML specification  |
 |            |            | [1].                                             |
 +            +------------+--------------------------------------------------+
 |            | encoding	  | Identifies the character format in the file.     |
 |            |            | This value will equal "ISO-8859-1" for all       |
-|            |            | data files created with MBF Bioscience   |
+|            |            | data files created with MBF Bioscience           |
 |            |            | software, implying single-byte encoding [2].     |
 +------------+------------+--------------------------------------------------+
 
@@ -323,8 +323,9 @@ The <images> element in the header can contain one or many <image> elements enab
 
     <images>
       <image>
-        <filename>\\FilePath\ImageName</filename><channels merge="no">
-        <channel id="red" source="none"/>
+        <filename>\\FilePath\ImageName</filename>
+        <channels merge="no">
+          <channel id="red" source="none"/>
           <channel id="green" source="none"/>
           <channel id="blue" source="none"/>
         </channels>
@@ -642,8 +643,8 @@ Each <marker> attribute, including type, color, name, and varicosity, is defined
 |             | name                     | A user-defined name.     |
 +-------------+--------------------------+--------------------------+
 |             | varicosity               | This value will be set   |
-|             |                          | to true if the marker is |
-|             |                          | used to mark a           |
+|             |                          | to true if the marker is |
+|             |                          | used to mark a           |
 |             |                          | varicosity, otherwise,   |
 |             |                          | the value is set to      |
 |             |                          | false to indicate a      |
@@ -962,14 +963,14 @@ There are four <property> child elements that can be included in the <contour> e
 +=========================+===========================================+
 | name=”GUID”             | A unique contour identification number.   |
 +-------------------------+-------------------------------------------+
-| name=”FillDensity”      | Provides a number relating to the         |
-|                         | contour’s fill percentage. 0 indicates    |
+| name=”FillDensity”      | Provides a number relating to the         |
+|                         | contour’s fill percentage. 0 indicates    |
 |                         | the contour has no fill and the polygon   |
 |                         | is hollow. The value can equal a number   |
 |                         | between 0 and 255. 100% fill density will |
 |                         | report a value of 255.                    |
 +-------------------------+-------------------------------------------+
-| name=”Channel”          | Contains three values that describe the   |
+| name=”Channel”          | Contains three values that describe the   |
 |                         | channel an element was detected in.       |
 |                         | Detailed above.                           |
 +-------------------------+-------------------------------------------+
@@ -1163,7 +1164,7 @@ Each spine element has 7 <property> elements named: “Class”, “Color”, �
 |                  |                | element.                       |
 +------------------+----------------+--------------------------------+
 |                  | classification | Records the type of spine:     |
-|                  |                | none, filopodium, mushroom,    |
+|                  |                | none, filopodium, mushroom,    |
 |                  |                | stubby, thin, branched,        |
 |                  |                | detached, and other.           |
 +------------------+----------------+--------------------------------+
@@ -1483,7 +1484,7 @@ Each attribute of the varicosity element is described in Table 18.
 +--------------+--------------------------+--------------------------+
 |              | version                  | Defines the data format  |
 |              |                          | version for the          |
-|              |                          | varicosity child         |
+|              |                          | varicosity child         |
 |              |                          | element.                 |
 +--------------+--------------------------+--------------------------+
 |              | color                    | Defines the color of the |
@@ -1492,7 +1493,7 @@ Each attribute of the varicosity element is described in Table 18.
 |              |                          | value.                   |
 +--------------+--------------------------+--------------------------+
 |              | generated                | The                      |
-|              |                          | value “true” indicates   |
+|              |                          | value “true” indicates   |
 |              |                          | the varicosity was       |
 |              |                          | detected by an MBF       |
 |              |                          | Bioscience software      |
@@ -1504,9 +1505,9 @@ Each attribute of the varicosity element is described in Table 18.
 |              |                          | varicosity.              |
 +--------------+--------------------------+--------------------------+
 |              | length                   | Distance between the     |
-|              |                          | first varicosity point   |
+|              |                          | first varicosity point   |
 |              |                          | to the last varicosity   |
-|              |                          | point reported in        |
+|              |                          | point reported in        |
 |              |                          | micrometer units         |
 +--------------+--------------------------+--------------------------+
 |              | maximumdiameter          | Largest diameter along   |
@@ -1532,11 +1533,11 @@ Each attribute of the varicosity element is described in Table 18.
 |              |                          | the attachment and the   |
 |              |                          | previous point that      |
 |              |                          | gives                    |
-|              |                          | the precise location of  |
+|              |                          | the precise location of  |
 |              |                          | the center of the        |
 |              |                          | varicosity.              |
 +--------------+--------------------------+--------------------------+
-|              | attachment               | Describes the point on   |
+|              | attachment               | Describes the point on   |
 |              |                          | the branch where the     |
 |              |                          | center of the varicosity |
 |              |                          | is attached.             |
@@ -1618,7 +1619,7 @@ The <vessel> attributes are detailed in Table 19.
 +-------------+--------------------------+--------------------------+
 |             | version                  | Defines the data format  |
 |             |                          | version for the          |
-|             |                          | vessel child element.    |
+|             |                          | vessel child element.    |
 +-------------+--------------------------+--------------------------+
 |             | color                    | Defines the color of the |
 |             |                          | vessel, represented with |
@@ -1907,4 +1908,3 @@ The <scalebar> element stores information on a 2D scalebar set to a user-defined
 3.	Allen Mouse Brain Atlas Lein, E.S. et al. (2007) Genome-wide atlas of gene expression in the adult mouse brain, Nature 445: 168-176. doi:10.1038/nature05453
 
 .. [1] The version number given here is for the neuromorphological file specification and is independent of the version number in any XML data file and any MBF Bioscience Software.
-
