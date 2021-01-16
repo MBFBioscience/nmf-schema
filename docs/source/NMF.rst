@@ -1373,7 +1373,7 @@ Each spine element has 7 <property> elements named: “Class”, “Color”, �
 |                 |        |         | this coordinate.           |
 +-----------------+--------+---------+----------------------------+
 
-*Table 16 The <property name=”Backbone”> element, its values, and a descriptions for all fields. The Line # column corresponds to the first 5 line numbers in Figure 30. The x, y, z, and d values are repeated in lines [6] through [21] of Figure 30.*
+*Table 16 The <property name=”Backbone”> element, its values, and a description for all fields. The Line # column corresponds to the first 5 line numbers in Figure 30. The x, y, z, and d values are repeated in lines [6] through [21] of Figure 30.*
 
 
 The final property, “VolumeRLE”, includes values detailing a cuboid that encloses the detected spine volume. Each value is defined in Table 17. 
