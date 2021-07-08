@@ -4,7 +4,6 @@
     :height: 70px
     :target: https://www.mbfbioscience.com/
 
-
 Welcome to the Neuromorphological File Specification
 ====================================================
 
@@ -21,8 +20,6 @@ Explore 3D neuronal, vascular, and anatomical reconstructions on your web browse
     <iframe width="100%" height="500" src="https://sparc.biolucida.net:8081" frameborder="0"></iframe>
 
 Zoom, pan, and rotate in a dynamic 3D environment to investigate the segmentation data in the `Neuromorphological File Format. <https://neuromorphological-file-specification.readthedocs.io/en/latest/NMF.html>`_
-
- 
 
 Specification Versions
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -50,7 +47,7 @@ For information about the neuromorphological file format, ask questions on the M
 
 How to cite Neuromorphological File Format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Angstman, P. J., Tappan, S. J., Sullivan, A. E., Thomas, G. C., Rodriguez, A., Hoppes, D. M., Abdul-Karim, M. A., Heal, M. L., Glaser, J.R. (2020). Neuromorphological File Specification version  4.0.0. Neuromorphological File Specification. Retrieved Month Date, Year from https://neuromorphological-file-specification.readthedocs.io/en/latest/NMF.html 
+Angstman, P. J., Tappan, S. J., Sullivan, A. E., Thomas, G. C., Rodriguez, A., Hoppes, D. M., Abdul-Karim, M. A., Heal, M. L., Glaser, J.R. (2020). Neuromorphological File Specification version  4.0.1. Neuromorphological File Specification. Retrieved Month Date, Year from https://neuromorphological-file-specification.readthedocs.io/en/latest/NMF.html 
 
 .. toctree::
    :maxdepth: 1

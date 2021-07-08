@@ -4,14 +4,12 @@
     :height: 70px
     :target: https://www.mbfbioscience.com/
 
-
 Neuromorphological File Specification
 =====================================
 
 Version 4.0.1 [1]_
 
 .. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neuromorphological-file-specification/34>`_ 
-
 
 1. Definitions
 --------------
