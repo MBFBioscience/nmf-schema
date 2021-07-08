@@ -8,8 +8,7 @@
 Neuromorphological File Specification
 =====================================
 
-
-Version 4.0.0 [1]_
+Version 4.0.1 [1]_
 
 .. note::  For additional information, visit MBF Bioscience's user forum for the `Neuromorphological File Specification. <https://forums.mbfbioscience.com/c/neuromorphological-file-specification/34>`_ 
 
@@ -1814,7 +1813,7 @@ The <arrow> element includes two-point elements that connect to create the lengt
 ############
 
 User-defined text can be added to any location of a data file with the <text> element. This element has one <point> child element indicating the location of the center of the text string. 
-
+ 
 
 .. code-block:: xml
 
