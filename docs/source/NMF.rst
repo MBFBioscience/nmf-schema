@@ -2,7 +2,7 @@
     :width: 108px
     :align: right
     :height: 70px
-    :target: https://www.mbfbioscience.com/ 
+    :target: https://www.mbfbioscience.com/
 
 
 Neuromorphological File Specification
@@ -1814,7 +1814,7 @@ The <arrow> element includes two-point elements that connect to create the lengt
 ############
 
 User-defined text can be added to any location of a data file with the <text> element. This element has one <point> child element indicating the location of the center of the text string. 
- 
+
 
 .. code-block:: xml
 

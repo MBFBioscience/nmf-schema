@@ -7,7 +7,7 @@
 
 Credits
 =======
- 
+
 
 Acknowledgments
 ^^^^^^^^^^^^^^^
@@ -16,8 +16,3 @@ We would like to dedicate the publication of this file specification to the memo
 Authors
 ^^^^^^^
 Angstman, P. J., Tappan, S. J., Sullivan, A. E., Thomas, G. C., Rodriguez, A., Hoppes, D. M., Abdul-Karim, M. A., Heal, M. L., Glaser, J.R
-
-How to cite Neuromorphological File Format
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Angstman, P. J., Tappan, S. J., Sullivan, A. E., Thomas, G. C., Rodriguez, A., Hoppes, D. M., Abdul-Karim, M. A., Heal, M. L., Glaser, J.R. (2020). Neuromorphological File Specification version  4.0.0. Neuromorphological File Specification. Retrieved Month Date, Year from https://neuromorphological-file-specification.readthedocs.io/en/latest/NMF.html 
- 
