@@ -23,9 +23,9 @@ Zoom, pan, and rotate in a dynamic 3D environment to investigate the segmentatio
 
 Specification Versions
 ^^^^^^^^^^^^^^^^^^^^^^
-Neuromorphological File Specification 4.0.1
+`Neuromorphological File Specification 4.0.1 <https://neuromorphological-file-specification.readthedocs.io/en/latest/NMF.html>`_
 
-Neuromorphological File Specification 4.0.0
+`Neuromorphological File Specification 4.0.0 <https://neuromorphological-file-specification.readthedocs.io/en/4.0.0/NMF.html>`_
 
 Governance 
 ^^^^^^^^^^
