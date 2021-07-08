@@ -9,7 +9,7 @@ Legal
 =====
 Copyright
 ---------
-
+ 
 
 All information on this website is copyright of MBF Bioscience.
 
@@ -42,7 +42,7 @@ Subject to the terms and conditions of the CC-BY-NC-ND license, MBF Bioscience h
 
 You are free to share, copy, and redistribute the material in any medium or format under the following terms: 
 
-
+ 
 Attribution
 ^^^^^^^^^^^
 
@@ -89,4 +89,3 @@ If you remix, transform, or build upon the material, you may not distribute the 
 
 
 You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-

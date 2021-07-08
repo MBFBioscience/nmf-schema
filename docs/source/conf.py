@@ -29,7 +29,7 @@ copyright = '2020, MBF Bioscience'
 author = 'MBF Bioscience'
 
 # The full version, including alpha/beta/rc tags
-release = '4.0.0'
+release = '4.0.1'
 
 
 # -- General configuration ---------------------------------------------------
