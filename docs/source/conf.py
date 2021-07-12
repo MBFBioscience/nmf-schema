@@ -25,7 +25,7 @@ def setup(app):
 # -- Project information -----------------------------------------------------
 
 project = 'Neuromophological File Specification'
-copyright = '2020, MBF Bioscience'
+copyright = '2021, MBF Bioscience'
 author = 'MBF Bioscience'
 
 # The full version, including alpha/beta/rc tags

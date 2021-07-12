@@ -48,7 +48,7 @@ The neuromorphological file format is an Extensible Markup Language (XML) 1.0 (F
 	
 	</mbf>
 	
-*Figure 1 A Neuromorphological data file.  The header elements are displayed in green. All MBF tracing data is a nested element of the <mbf> element and is represented above with the comment, TRACING DATA.*
+*Figure 1 A Neuromorphological data file.  The header elements are displayed in green. All MBF Bioscience tracing data is a nested element of the <mbf> element and is represented above with the comment, TRACING DATA.*
 
 
 3.1 Coordinate Space 
@@ -244,7 +244,7 @@ All child elements and attributes of the <filefacts> are defined in Table 3.
 ^^^^^^^^^^^^^^^
 The <sparcdata> element stores additional subject and annotation metadata. This information allows neuromorphological data files to be queried by species, subject ID, sex, age, and organ of the image sample origin. 
 
-MBF products interface with an external database, Scicrunch that maintains lists of anatomical terms separated by organ, species, and atlas/parcellation scheme. Each anatomy term is associated with a unique identifier and is approved by a team of anatomical experts. The <sparcdata> element informs the species, subject, sex, and age of the image sample segmented along with the exact anatomical list used to segment the image.  
+MBF Bioscience products interface with an external database, Scicrunch that maintains lists of anatomical terms separated by organ, species, and atlas/parcellation scheme. Each anatomy term is associated with a unique identifier and is approved by a team of anatomical experts. The <sparcdata> element informs the species, subject, sex, and age of the image sample segmented along with the exact anatomical list used to segment the image.  
 
 
 .. code-block:: xml

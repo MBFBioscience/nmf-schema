@@ -42,9 +42,9 @@ The following is the intended sequence of events in the life of an issue.
 
    a. If the ticket regards a simple matter such as a formatting error, the ticket resolution does not require a majority; they can be acted upon by a single Editor and the issue closed by that Editor after they made the relevant change(s). If any other Editors disagree with the action, they can reopen the issue and call for the issue to follow the process below.
 
-   b. In other cases, a majority consensus will eventually arise from the editors. A supermajority of 4 out of 5 editors is preferred, but some issues may become stalemated at a 3 out of 5 majority. In those cases, the MBF Representative’s opinion should be included in the discussion, and if the 2 minority-opinion Editors wish, the community may be polled via the neuromorphological file format list serve.
+   b. In other cases, a majority consensus will eventually arise from the editors. A supermajority of 4 out of 5 editors is preferred, but some issues may become stalemated at a 3 out of 5 majority. In those cases, the MBF Bioscience Representative’s opinion should be included in the discussion, and if the 2 minority-opinion Editors wish, the community may be polled via the neuromorphological file format list serve.
 
-.. note::  If the MBF Representative or any of the Editors call for closure on an issue where consensus has not been reached, then Editors should make their opinions known within two weeks of the call for closure. If a majority opinion has not been reached by the end of two weeks, the MBF Representative’s vote may be counted as the tie-breaking vote in the event of a tie. The minority-opinion Editor(s) may still request that the community be polled on the issue.
+.. note::  If the MBF Bioscience Representative or any of the Editors call for closure on an issue where consensus has not been reached, then Editors should make their opinions known within two weeks of the call for closure. If a majority opinion has not been reached by the end of two weeks, the MBF Bioscience Representative’s vote may be counted as the tie-breaking vote in the event of a tie. The minority-opinion Editor(s) may still request that the community be polled on the issue.
 
 ..
 
@@ -59,9 +59,9 @@ The following is the intended sequence of events in the life of an issue.
    
    3. Accepted: Changes with conformance implications: These are changes that do affect the conformance of software reading, writing and/or processing data in neuromorphological file format.
    
-      a. If MBF products will adopt the change: the issue is added to the MBF Bioscience development tracking space (Pivotal) by the MBF Representative. 
+      a. If MBF Bioscience products will adopt the change: the issue is added to the MBF Bioscience development tracking space (Pivotal) by the MBF Bioscience Representative. 
       
-      b. If MBF products will skip over the change because it is not relevant or it is out of scope, this is noted on the ticket and in the specification. The editorial board’s MBF Representative is responsible for determining this. 
+      b. If MBF Bioscience products will skip over the change because it is not relevant or it is out of scope, this is noted on the ticket and in the specification. The editorial board’s MBF Bioscience Representative is responsible for determining this. 
 
 ..
 
